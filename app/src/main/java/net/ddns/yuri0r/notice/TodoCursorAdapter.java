@@ -28,7 +28,9 @@ class TodoCursorAdapter extends CursorAdapter {
         TextView textView = (TextView) view.findViewById(R.id.textView);
         // Extract properties from cursor
         String title = cursor.getString(cursor.getColumnIndexOrThrow(NoticeDbHelper.NoticeEntry.COLUMN_NAME_TITLE));
+        int id = cursor.getInt(cursor.getColumnIndexOrThrow(NoticeDbHelper.NoticeEntry._ID));
         // Populate fields with extracted properties
         textView.setText(title);
+        view.setTag(id);
     }
 }
