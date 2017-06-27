@@ -2,8 +2,10 @@ package net.ddns.yuri0r.notice;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.renderscript.RenderScript;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -43,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void openNotice(View view) {
 
-        Intent intent = new Intent(this, NoticeActivity.class);
+        Intent intent = new Intent(getApplicationContext(), NoticeActivity.class);
+        Log.println(Log.ERROR, (String)view.getTag(),"openNotice" + view.getTag().toString());
         intent.putExtra("id", (String) view.getTag()); //Optional parameters
         this.startActivity(intent);
     }

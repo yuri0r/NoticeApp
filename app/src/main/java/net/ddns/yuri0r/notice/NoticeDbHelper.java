@@ -44,9 +44,9 @@ class NoticeDbHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
-    Cursor getTask(int taskID) {
+    Cursor getTask(String taskID) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE TaskID=" + taskID, null);
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE _ID=" + taskID, null);
     }
 
     boolean addTask(String title, String subtitle) {
@@ -58,9 +58,9 @@ class NoticeDbHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    public boolean deleteTask(int taskID) {
+    public boolean deleteTask(String taskID) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLE_NAME, "TaskID=?", new String[]{Integer.toString(taskID)});
+        long result = db.delete(TABLE_NAME, "_ID", new String[] {taskID});
         return result != -1;
     }
 

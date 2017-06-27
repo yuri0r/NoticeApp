@@ -2,11 +2,14 @@ package net.ddns.yuri0r.notice;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
+
+import static android.content.ContentValues.TAG;
 
 class TodoCursorAdapter extends CursorAdapter {
     TodoCursorAdapter(Context context, Cursor cursor) {
@@ -28,9 +31,10 @@ class TodoCursorAdapter extends CursorAdapter {
         TextView textView = (TextView) view.findViewById(R.id.textView);
         // Extract properties from cursor
         String title = cursor.getString(cursor.getColumnIndexOrThrow(NoticeDbHelper.NoticeEntry.COLUMN_NAME_TITLE));
-        int id = cursor.getInt(cursor.getColumnIndexOrThrow(NoticeDbHelper.NoticeEntry._ID));
+        String id = cursor.getString(cursor.getColumnIndexOrThrow(NoticeDbHelper.NoticeEntry._ID));
+        Log.e(TAG, "bindView:  " + id);
         // Populate fields with extracted properties
         textView.setText(title);
-        view.setTag(id);
+        textView.setTag(id);
     }
 }
