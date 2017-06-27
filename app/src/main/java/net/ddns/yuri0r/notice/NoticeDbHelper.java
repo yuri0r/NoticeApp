@@ -39,17 +39,17 @@ class NoticeDbHelper extends SQLiteOpenHelper {
 /*-----------------------------db methods--------------------------------------------*/
 
 
-    public Cursor getTasks() {
+    Cursor getTasks() {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
-    public Cursor getTask(int taskID) {
+    Cursor getTask(int taskID) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE TaskID=" + taskID, null);
     }
 
-    public boolean insertTask(String title, String subtitle) {
+    boolean addTask(String title, String subtitle) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_NAME_TITLE, title);
