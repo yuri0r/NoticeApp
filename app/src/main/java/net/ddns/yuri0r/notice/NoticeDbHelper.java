@@ -60,7 +60,7 @@ class NoticeDbHelper extends SQLiteOpenHelper {
 
     public boolean deleteTask(String taskID) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = db.delete(TABLE_NAME, "_ID", new String[] {taskID});
+        long result = db.delete(TABLE_NAME, "_ID=?", new String[] {taskID});
         return result != -1;
     }
 
@@ -70,7 +70,7 @@ class NoticeDbHelper extends SQLiteOpenHelper {
 
     // If you change the database schema, you must increment the database version.
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "NoticeActivity.db";
+    private static final String DATABASE_NAME = "ShowNoticeActivity.db";
 
 
 

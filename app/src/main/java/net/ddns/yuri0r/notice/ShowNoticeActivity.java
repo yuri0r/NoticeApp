@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class NoticeActivity extends Activity {
+public class ShowNoticeActivity extends Activity {
 
     NoticeDbHelper dbHelper = new NoticeDbHelper(this);
      /*-----------------------UI Elements--------------------------------------------------------*/
@@ -16,7 +16,7 @@ public class NoticeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notice);
+        setContentView(R.layout.activity_shownotice);
 
         Intent intent = getIntent();
         String id = intent.getStringExtra("id"); //if it's a string you stored.
@@ -37,7 +37,6 @@ public class NoticeActivity extends Activity {
 
         titleTextView.setText(title);
         subTitleTextView.setText(subTitle);
-
 
     }
 }

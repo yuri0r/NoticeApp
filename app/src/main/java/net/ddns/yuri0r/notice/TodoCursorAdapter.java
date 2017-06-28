@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
@@ -29,6 +30,7 @@ class TodoCursorAdapter extends CursorAdapter {
     public void bindView(View view, Context context, Cursor cursor) {
         // Find fields to populate in inflated template
         TextView textView = (TextView) view.findViewById(R.id.textView);
+        Button button = (Button) view.findViewById(R.id.button);
         // Extract properties from cursor
         String title = cursor.getString(cursor.getColumnIndexOrThrow(NoticeDbHelper.NoticeEntry.COLUMN_NAME_TITLE));
         String id = cursor.getString(cursor.getColumnIndexOrThrow(NoticeDbHelper.NoticeEntry._ID));
@@ -36,5 +38,7 @@ class TodoCursorAdapter extends CursorAdapter {
         // Populate fields with extracted properties
         textView.setText(title);
         textView.setTag(id);
+        button.setTag(id);
     }
+
 }

@@ -24,6 +24,7 @@
         android:layout_alignBottom="@+id/textView"
         android:layout_alignTop="@+id/textView"
         android:text="done"
+        android:onClick="doNotice"
 
         />
 
